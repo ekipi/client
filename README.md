@@ -1,1 +1,1 @@
-# client
+# Angular CLI client for Ekipi
