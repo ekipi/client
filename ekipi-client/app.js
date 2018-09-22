@@ -1,14 +1,11 @@
-var http = require('http'),
-  fs = require('fs');
-fs.readFile('./dist/ekipi-client/index.html', function (err, html) {
-  if (err) {
-    throw err;
-  }
-  http.createServer(function (request, response) {
-    response.writeHeader(200, {
-      "Content-Type": "text/html"
-    });
-    response.write(html);
-    response.end();
-  }).listen(3000);
+var express = require('express');
+var app = express();
+var path = require('path');
+
+app.use(express.static(__dirname + '/dist/ekipi-client'));
+// viewed at http://localhost:8080
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/ekipi-client/index.html'));
 });
+
+app.listen(3000);
