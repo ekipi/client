@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SocketioService } from './shared/socketio.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { SocketioService } from './shared/socketio.service';
 })
 export class CodeshareComponent implements OnInit {
   ioConnection: any;
-  dataContent: string;
+  text: string;
+  /* options: any = { maxLines: 1000, printMargin: true }; */
   constructor(private socketService: SocketioService) { }
 
   ngOnInit() {
@@ -18,7 +19,8 @@ export class CodeshareComponent implements OnInit {
     this.socketService.initSocket();
     this.ioConnection = this.socketService.onContent()
       .subscribe((data: any) => {
-        this.dataContent = data;
+        console.log('Message from server : ' + data);
+        this.text = data;
       });
     this.socketService.onEvent('connect')
       .subscribe(() => {
@@ -31,7 +33,15 @@ export class CodeshareComponent implements OnInit {
       });
   }
 
-  public sendContent(content: any): void {
+  /* public sendContent(content: any): void {
+    if (!content) {
+      return;
+    }
+    this.socketService.send(content);
+  } */
+
+  onChange(content) {
+    console.log('new code', content);
     if (!content) {
       return;
     }
