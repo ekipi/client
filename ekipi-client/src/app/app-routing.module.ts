@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CodeshareComponent } from './codeshare/codeshare.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'codeshare', component: CodeshareComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,12 +1,12 @@
-.sidenav-container {
-  height: 100%;
+.example-icon {
+  padding: 0 14px;
 }
 
-.sidenav {
-  width: 200px;
+.example-spacer {
+  flex: 1 1 auto;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
+.custom-primary {
+  background: #30353e;
+  color: #fff;
 }
