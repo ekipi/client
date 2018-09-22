@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CodeshareComponent } from './codeshare/codeshare.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {
-    path: 'codeshare', component: CodeshareComponent
-  }
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'codeshare', component: CodeshareComponent }
 ];
 
 @NgModule({
