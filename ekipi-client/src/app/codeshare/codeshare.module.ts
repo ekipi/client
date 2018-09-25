@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { CodeshareComponent } from './codeshare.component';
 import { SocketioService } from './shared/socketio.service';
 import { AceEditorModule } from 'ng2-ace-editor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AceEditorModule
+    AceEditorModule,
+    HttpClientModule
   ],
   declarations: [CodeshareComponent],
   providers: [SocketioService]
