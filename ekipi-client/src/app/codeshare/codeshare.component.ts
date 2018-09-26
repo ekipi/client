@@ -29,6 +29,7 @@ export class CodeshareComponent implements OnInit {
           this.router.navigate(['/']); // if the session id is invalid, navigate to home
         } else {
           this.sessionId = sessionObject._id;
+          this.text = sessionObject.content;
           this.initIOConnection();
         }
       });
