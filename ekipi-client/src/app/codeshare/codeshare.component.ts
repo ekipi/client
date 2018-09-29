@@ -1,3 +1,4 @@
+import { ErrorService } from './../core/errors/error.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SocketioService } from '../shared/socket/socketio.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,18 +15,22 @@ export class CodeshareComponent implements OnInit {
   sessionId: string;
   /* options: any = { maxLines: 1000, printMargin: true }; */
   constructor(private socketService: SocketioService,
-    private activeRoute: ActivatedRoute, private router: Router,
-    private sessionService: SessionService) {
+    private activeRoute: ActivatedRoute,
+    private router: Router,
+    private sessionService: SessionService,
+    private errorService: ErrorService) {
   }
 
   ngOnInit() {
     // subscribe to the parameters observable
-    this.activeRoute.paramMap.subscribe(params => {
+    this.activeRoute.paramMap
+    .subscribe(params => {
       console.log(params.get('sessionId'));
       this.sessionId = params.get('sessionId');
     });
     if (this.sessionId) {
-      this.sessionService.getSession(this.sessionId).subscribe(sessionObject => {
+      this.sessionService.getSession(this.sessionId)
+      .subscribe(sessionObject => {
         if (sessionObject == null || sessionObject._id == null || sessionObject._id === undefined) {
           this.router.navigate(['/']); // if the session id is invalid, navigate to home
         } else {
@@ -40,7 +45,8 @@ export class CodeshareComponent implements OnInit {
         'createdDate': new Date(),
         'content': this.text
       };
-      this.sessionService.createSession(sessionObj).subscribe(sessionObject => {
+      this.sessionService.createSession(sessionObj)
+      .subscribe(sessionObject => {
         if (sessionObject == null || sessionObject._id == null || sessionObject._id === undefined) {
           this.router.navigate(['/']); // if the session id is invalid, navigate to home
         } else {
@@ -76,7 +82,7 @@ export class CodeshareComponent implements OnInit {
   } */
 
   onChange = (content) => {
-    console.log('new code', content);
+    this.errorService.prependLog('new code',content);
     if (!content) {
       return;
     }

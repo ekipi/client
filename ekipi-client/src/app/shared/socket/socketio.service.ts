@@ -1,3 +1,4 @@
+import { ErrorService } from './../../core/errors/error.service';
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, of } from 'rxjs';
@@ -5,11 +6,13 @@ import * as SharedConstants from '../shared.constants';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SocketioService {
+  
   private socket;
-  constructor() { }
+  constructor(private errorService: ErrorService) { }
   public initSocket = (): void => {
-    console.log(SharedConstants.SERVER.URL);
+    this.errorService.log(SharedConstants.SERVER.URL);
     this.socket = io(SharedConstants.SERVER.URL);
   }
 
