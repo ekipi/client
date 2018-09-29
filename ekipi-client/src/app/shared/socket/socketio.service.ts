@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, of } from 'rxjs';
-import { SERVER } from '../shared-constants';
+import * as SharedConstants from '../shared.constants';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +9,9 @@ export class SocketioService {
   private socket;
   constructor() { }
   public initSocket = (): void => {
-    this.socket = io(SERVER.URL);
+    console.log("========>");
+    console.log(SharedConstants.SERVER.URL);
+    this.socket = io(SharedConstants.SERVER.URL);
   }
 
   public send = (content: any): void => {
