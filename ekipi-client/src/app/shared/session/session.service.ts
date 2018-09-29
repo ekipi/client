@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as SharedConstants from '../shared.constants';
 
-const SERVER_API_URL = 'http://142.93.223.220:4200/api';
+const API = SharedConstants.SERVER.API_URL;
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class SessionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSession(sessionId): any {
-    return this.httpClient.get(`${SERVER_API_URL}/session/` + sessionId);
+  getSession = (sessionId): any => {
+    return this.httpClient.get(`${API}/session/` + sessionId);
   }
 
-  createSession(sessionObject: any): Observable<any> {
+  createSession = (sessionObject: any): Observable<any>  => {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
       // 'Cache-Control': 'no-cache'
@@ -23,6 +24,6 @@ export class SessionService {
     const options = {
       headers: httpHeaders
     };
-    return this.httpClient.post(`${SERVER_API_URL}/createSession`, sessionObject, options);
+    return this.httpClient.post(`${API}/createSession`, sessionObject, options);
   }
 }
