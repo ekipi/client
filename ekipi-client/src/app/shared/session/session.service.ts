@@ -11,11 +11,11 @@ export class SessionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSession(sessionId): any {
+  getSession = (sessionId): any => {
     return this.httpClient.get(`${SERVER_API_URL}/session/` + sessionId);
   }
 
-  createSession(sessionObject: any): Observable<any> {
+  createSession = (sessionObject: any): Observable<any>  => {
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
       // 'Cache-Control': 'no-cache'

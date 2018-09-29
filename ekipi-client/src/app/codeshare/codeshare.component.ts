@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { SocketioService } from './shared/socketio.service';
+import { SocketioService } from '../shared/socket/socketio.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SessionService } from './shared/session.service';
+import { SessionService } from '../shared/session/session.service';
 
 @Component({
   selector: 'app-codeshare',
@@ -17,9 +17,9 @@ export class CodeshareComponent implements OnInit {
     private activeRoute: ActivatedRoute, private router: Router,
     private sessionService: SessionService) { }
 
-  ngOnInit() {
+  ngOnInit = () => {
     // subscribe to the parameters observable
-    this.activeRoute.paramMap.subscribe(params => {
+    this.activeRoute.paramMap.subscribe( params => {
       console.log(params.get('sessionId'));
       this.sessionId = params.get('sessionId');
     });
@@ -48,7 +48,7 @@ export class CodeshareComponent implements OnInit {
       });
     }
   }
-  private initIOConnection(): void {
+  private initIOConnection = (): void => {
     this.socketService.initSocket();
     this.ioConnection = this.socketService.onContent()
       .subscribe((data: any) => {
@@ -74,7 +74,7 @@ export class CodeshareComponent implements OnInit {
     this.socketService.send(content);
   } */
 
-  onChange(content) {
+  onChange = (content) => {
     console.log('new code', content);
     if (!content) {
       return;
