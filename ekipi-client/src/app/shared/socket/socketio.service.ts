@@ -9,7 +9,6 @@ export class SocketioService {
   private socket;
   constructor() { }
   public initSocket = (): void => {
-    console.log("========>");
     console.log(SharedConstants.SERVER.URL);
     this.socket = io(SharedConstants.SERVER.URL);
   }

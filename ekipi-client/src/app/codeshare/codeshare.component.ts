@@ -15,11 +15,12 @@ export class CodeshareComponent implements OnInit {
   /* options: any = { maxLines: 1000, printMargin: true }; */
   constructor(private socketService: SocketioService,
     private activeRoute: ActivatedRoute, private router: Router,
-    private sessionService: SessionService) { }
+    private sessionService: SessionService) {
+  }
 
-  ngOnInit = () => {
+  ngOnInit() {
     // subscribe to the parameters observable
-    this.activeRoute.paramMap.subscribe( params => {
+    this.activeRoute.paramMap.subscribe(params => {
       console.log(params.get('sessionId'));
       this.sessionId = params.get('sessionId');
     });
@@ -35,7 +36,7 @@ export class CodeshareComponent implements OnInit {
       });
     } else {
       const sessionObj: any = {
-        'createdBy': 'ctapal',
+        // 'createdBy': 'ctapal',
         'createdDate': new Date(),
         'content': this.text
       };
