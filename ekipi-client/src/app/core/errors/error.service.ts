@@ -5,20 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class ErrorService {
 
-  constructor(){ }
+  constructor() { }
 
   // Log the error to the console
-  log = (error:string): void => {
-    console.error(error)
+  log = (error: string): void => {
+    console.error(error);
   }
 
   prependLog = (comment: string, error: string): void => {
-    this.log(comment+' : '+error);
+    this.log(comment + ' : ' + error);
   }
 
-  logWithTimestamp = (error:string) => {
-    let date = new Date();
-    console.log(date + ' : '+error)
+  logWithTimestamp = (error: string) => {
+    const date = new Date();
+    console.log(date + ' : ' + error);
   }
 
 
