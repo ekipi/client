@@ -1,3 +1,4 @@
+import { ErrorService } from './../core/errors/error.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   declarations: [CodeshareComponent],
-  providers: [SocketioService]
+  providers: [SocketioService, ErrorService]
 })
 export class CodeshareModule { }
