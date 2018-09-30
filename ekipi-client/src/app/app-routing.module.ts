@@ -1,11 +1,15 @@
+import { ContactUsComponent } from './core/contact-us/contact-us.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CodeshareComponent } from './codeshare/codeshare.component';
+import { HomepageComponent } from './core/homepage/homepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'codeshare', component: CodeshareComponent },
-  { path: 'codeshare/:sessionId', component: CodeshareComponent }
+  { path: 'contactus', component: ContactUsComponent },
+  { path: 'codeshare/:sessionId', component: CodeshareComponent },
+  { path: 'home', component: HomepageComponent }
 ];
 
 @NgModule({
