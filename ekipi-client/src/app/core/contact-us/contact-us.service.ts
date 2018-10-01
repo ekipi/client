@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import * as SharedConstants from '../../shared/shared.constants';
-const API = SharedConstants.SERVER.API_URL;
+import { environment } from '../../../environments/environment';
+const API = environment.API_URL;
 @Injectable({
   providedIn: 'root'
 })

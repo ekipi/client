@@ -1,19 +1,18 @@
 import { ErrorService } from './../../core/errors/error.service';
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
-import { Observable, of } from 'rxjs';
-import * as SharedConstants from '../shared.constants';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 
 export class SocketioService {
-  
+
   private socket;
   constructor(private errorService: ErrorService) { }
   public initSocket = (): void => {
-    this.errorService.log(SharedConstants.SERVER.URL);
-    this.socket = io(SharedConstants.SERVER.URL);
+    this.socket = io(environment.URL);
   }
 
   public send = (content: any): void => {
