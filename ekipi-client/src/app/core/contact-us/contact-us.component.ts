@@ -17,7 +17,8 @@ export class ContactUsComponent implements OnInit {
   contactUsForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    content: new FormControl('', Validators.required)
+    content: new FormControl('', Validators.required),
+    createdDate : new FormControl(new Date(), Validators.required)
   });
 
   ngOnInit() {
@@ -28,7 +29,8 @@ export class ContactUsComponent implements OnInit {
     this.contactUsForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      content: ['', Validators.required]
+      content: ['', Validators.required],
+      createdDate : [new Date()]
     });
   }
 
