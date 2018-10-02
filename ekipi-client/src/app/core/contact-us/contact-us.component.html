@@ -42,6 +42,7 @@
               Message is required
             </span>
           </span>
+          <re-captcha (resolved)="resolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha>
         </div>
         <button type="submit" [disabled]="contactUsForm.pristine || contactUsForm.invalid" class="btn btn-info btn-xs">
           Submit

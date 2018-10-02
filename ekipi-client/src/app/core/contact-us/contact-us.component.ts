@@ -10,6 +10,7 @@ import { ContactUsService } from './contact-us.service';
 export class ContactUsComponent implements OnInit {
   submitted = false;
   emailMessage: string;
+  YOUR_SITE_KEY: string = '6LdeG3MUAAAAAOop80d8WnNXpCYOW3FKHYPRYdlK';
   constructor(private formBuilder: FormBuilder, private contactUsService: ContactUsService) {
     this.createForm();
   }
@@ -24,6 +25,10 @@ export class ContactUsComponent implements OnInit {
   ngOnInit() {
     this.emailMessage = '';
   }
+
+  resolved = (captchaResponse: string) => {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  } 
 
   createForm = () => {
     this.contactUsForm = this.formBuilder.group({

@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { HomepageComponent } from './core/homepage/homepage.component';
 import { ContactUsComponent } from './core/contact-us/contact-us.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactUsComponent } from './core/contact-us/contact-us.component';
     BrowserAnimationsModule,
     CodeshareModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
