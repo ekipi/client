@@ -10,7 +10,7 @@ import { ContactUsService } from './contact-us.service';
 export class ContactUsComponent implements OnInit {
   submitted = false;
   emailMessage: string;
-  YOUR_SITE_KEY: string = '6LdeG3MUAAAAAOop80d8WnNXpCYOW3FKHYPRYdlK';
+  YOUR_SITE_KEY: string = '6LcTxnMUAAAAACLrHDdD4h7S4tbKyqzPmHZkbizi';
   constructor(private formBuilder: FormBuilder, private contactUsService: ContactUsService) {
     this.createForm();
   }

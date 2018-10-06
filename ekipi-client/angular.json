@@ -24,7 +24,9 @@
             "styles": [
               "src/app/core/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "https://www.google.com/recaptcha/api.js"
+            ]
           },
           "configurations": {
             "production": {
