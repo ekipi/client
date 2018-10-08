@@ -35,7 +35,7 @@
 
         <div class="form-group">
           <span class="label label-success">*Message </span>
-          <input type="textarea" class="form-control" formControlName="content" />
+          <textarea class="form-control" formControlName="content" rows="3"></textarea>
           <span *ngIf="contactUsForm.controls['content'].invalid && (contactUsForm.controls['content'].dirty || contactUsForm.controls['content'].touched)"
             style="color:firebrick">
             <span *ngIf="contactUsForm.controls['content'].errors.required">
